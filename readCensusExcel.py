@@ -15,8 +15,12 @@ print(f"Worksheet: {sheet.title}")
 print(f"Rows: {sheet.max_row}")
 print(f"Columns: {sheet.max_column}")
 
-print("\nFirst data row:")
+print("Reading rows...")
 
-print("State :", sheet["B2"].value)
-print("County:", sheet["C2"].value)
-print("Pop   :", sheet["D2"].value)
+for row in range(2, sheet.max_row + 1):
+    state = sheet["B" + str(row)].value
+    county = sheet["C" + str(row)].value
+    pop = sheet["D" + str(row)].value
+
+    print(state, county, pop)
+    break
