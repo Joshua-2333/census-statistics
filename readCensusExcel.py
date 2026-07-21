@@ -23,6 +23,10 @@ for row in range(2, sheet.max_row + 1):
     pop = sheet["D" + str(row)].value
 
     county_data.setdefault(state, {})
+    county_data[state].setdefault(county, {"tracts": 0, "pop": 0})
+
+    county_data[state][county]["tracts"] += 1
+    county_data[state][county]["pop"] += int(pop)
 
     print(county_data)
     break
