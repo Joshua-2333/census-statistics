@@ -28,5 +28,18 @@ for row in range(2, sheet.max_row + 1):
     county_data[state][county]["tracts"] += 1
     county_data[state][county]["pop"] += int(pop)
 
-    print(county_data)
-    break
+print("Processed", sheet.max_row - 1, "census tracts")
+
+print(county_data["AL"]["Autauga"])
+
+print("Writing results...")
+
+result_file = open("census2010.py", "w")
+
+result_file.write(
+    "allData = " + pprint.pformat(county_data)
+)
+
+result_file.close()
+
+print("Done.")
