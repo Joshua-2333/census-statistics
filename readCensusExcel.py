@@ -22,5 +22,7 @@ for row in range(2, sheet.max_row + 1):
     county = sheet["C" + str(row)].value
     pop = sheet["D" + str(row)].value
 
-    print(state, county, pop)
+    county_data.setdefault(state, {})
+
+    print(county_data)
     break
